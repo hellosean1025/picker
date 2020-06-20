@@ -1,10 +1,10 @@
-使用方法：
-1.webpack alias 
+# 使用方法：
+### 1.webpack alias 
 ```
 'rc-picker': 'sean-rc-picker',
 ```
 
-2.antd 组件引用，增加enableSelectTwiceWhenClickLeft
+### 2.antd 组件引用，增加enableSelectTwiceWhenClickLeft
 ```
 <Rangepicker
     enableSelectTwiceWhenClickLeft={true}
