@@ -1,7 +1,7 @@
 # 使用方法：
 ### 1.webpack alias 
 ```
-'rc-picker': 'sean-rc-picker',
+config.resolve.alias['rc-picker'] = 'sean-rc-picker';
 ```
 
 ### 2.antd 组件引用，增加enableSelectTwiceWhenClickLeft
