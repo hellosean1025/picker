@@ -1,3 +1,17 @@
+使用方法：
+1.webpack alias 
+```
+'rc-picker': 'sean-rc-picker',
+```
+
+2.antd 组件引用，增加enableSelectTwiceWhenClickLeft
+```
+<Rangepicker
+    enableSelectTwiceWhenClickLeft={true}
+/>
+```
+
+---------
 # rc-picker
 
 [![NPM version][npm-image]][npm-url]
@@ -34,7 +48,7 @@ https://react-component.github.io/picker/
 ## Usage
 
 ```js
-import Picker from 'rc-picker';
+import Picker from 'sean-rc-picker';
 import 'rc-picker/assets/index.css';
 import { render } from 'react-dom';
 
