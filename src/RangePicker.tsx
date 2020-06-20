@@ -95,6 +95,8 @@ export interface RangePickerSharedProps<DateType> {
   /** @private Internal control of active picker. Do not use since it's private usage */
   activePickerIndex?: 0 | 1;
   dateRender?: RangeDateRender<DateType>;
+  f;
+  enableSelectTwiceWhenClickLeft?: boolean;
 }
 
 type OmitPickerProps<Props> = Omit<
@@ -201,6 +203,7 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
     direction,
     activePickerIndex,
     autoComplete = 'off',
+    enableSelectTwiceWhenClickLeft = false,
   } = props as MergedRangePickerProps<DateType>;
 
   const needConfirmButton: boolean = (picker === 'date' && !!showTime) || picker === 'time';
@@ -390,7 +393,10 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
     }
 
     const canStartValueTrigger = canValueTrigger(startValue, 0, mergedDisabled, allowEmpty);
-    const canEndValueTrigger = canValueTrigger(endValue, 1, mergedDisabled, allowEmpty);
+    const canEndValueTriggerCase1 = canValueTrigger(endValue, 1, mergedDisabled, allowEmpty);
+    const canEndValueTriggerCase2 = mergedActivePickerIndex === 1;
+    const canEndValueTrigger =
+      enableSelectTwiceWhenClickLeft === true ? canEndValueTriggerCase2 : canEndValueTriggerCase1;
 
     const canTrigger = values === null || (canStartValueTrigger && canEndValueTrigger);
 
